@@ -7,7 +7,9 @@
   color: var(--my-color);
   border: 1px solid var(--my-color);
 }
-
+.cld-main svg{
+  fill: var(--my-color);
+}
 .back{
   background-color: var(--my-background); 
 }
