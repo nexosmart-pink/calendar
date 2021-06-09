@@ -1,3 +1,21 @@
+:root {
+  --my-color: #b5c2c9;
+  --my-background: #2c2c2c;
+}
+.btn-calendar{
+  background-color: var(--my-background); 
+  color: var(--my-color);
+  border: 1px solid var(--my-color);
+}
+
+.back{
+  background-color: var(--my-background); 
+}
+
+.f-color{
+  color: var(--my-color);
+}
+
 .cld-main{
   width: 330px;
 }
@@ -30,7 +48,8 @@
     cursor: pointer;
   }
   .cld-nav:hover svg{
-      fill: #666;
+     /** fill: #666; **/
+     fill: var(--my-color);
   }
   .cld-rwd{
     float: left;

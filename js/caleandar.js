@@ -131,7 +131,7 @@ function createCalendar(calendar, element, adjuster){
         var rwd = document.createElement('div');
         rwd.className += " cld-rwd cld-nav";
         rwd.addEventListener('click', function(){createCalendar(calendar, element, -1);} );
-        rwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,50 75,0 75,100"></polyline></svg>';
+        rwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="#b5c2c9"><polyline points="0,50 75,0 75,100"></polyline></svg>';
         datetime.appendChild(rwd);
       }
       var today = document.createElement('div');
@@ -142,7 +142,7 @@ function createCalendar(calendar, element, adjuster){
         var fwd = document.createElement('div');
         fwd.className += " cld-fwd cld-nav";
         fwd.addEventListener('click', function(){createCalendar(calendar, element, 1);} );
-        fwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,0 75,50 0,100"></polyline></svg>';
+        fwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="#b5c2c9"><polyline points="0,0 75,50 0,100"></polyline></svg>';
         datetime.appendChild(fwd);
       }
       if(calendar.Options.DatetimeLocation){
@@ -155,7 +155,8 @@ function createCalendar(calendar, element, adjuster){
   function AddLabels(){
     var labels = document.createElement('ul');
     labels.className = 'cld-labels';
-    var labelsList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    //var labelsList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var labelsList = ["Dom", "Lun", "Mar", "Mier", "Jue", "Vier", "Sab"];
     for(var i = 0; i < labelsList.length; i++){
       var label = document.createElement('li');
       label.className += "cld-label";
@@ -296,4 +297,78 @@ function createCalendar(calendar, element, adjuster){
 function caleandar(el, data, settings){
   var obj = new Calendar(data, settings);
   createCalendar(obj, el);
+  clickDay();
+  btnClose();
+  btnApply();
+  lastMonth();
 }
+
+
+/**
+ * OJO al pasar de mes hay que pasar la marca del dia seleccionado
+ */
+
+const clickDay = () =>{
+  let btns = document.querySelectorAll('.cld-number');
+  if (btns) btns.forEach(btn =>{
+    btn.addEventListener('click', ()=>{
+      console.log("click");
+      //sacar color al seleccionado anterior, y ponerle al nuevo
+      let today = document.querySelector('.currMonth.today');
+      if (today)
+        today.classList.remove('today');
+      btn.parentNode.classList.add('today');
+      let day = btn.innerHTML;
+      let date = document.querySelector('.cld-datetime')
+      console.log(date);
+      if (date)
+      {
+        date = date.querySelector('.today');
+        let year = date.innerHTML.substr(-4);
+        let month = date.innerHTML.substr(0,date.innerHTML.length-6);
+        let i = 0;
+        month_index=0;
+        let months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+        months.forEach(m =>{
+          if (m==month){
+            month_index=i;
+          }
+          i++;
+        })
+        console.log(month_index);
+      }
+      
+      
+    })
+  })
+} 
+
+const btnClose = () => {
+  let btn = document.querySelector('#btn-close');
+  if (btn) btn.addEventListener('click',()=>{
+    console.log("cerrar");
+  });
+}
+
+const btnApply = () => {
+  let btn = document.querySelector('#btn-apply');
+  if (btn) btn.addEventListener('click',()=>{
+    console.log("aplicar");
+  });
+}
+ 
+
+const lastMonth = () => {
+  let btn = document.querySelector('#btn-last-month');
+  if (btn) btn.addEventListener('click',()=>{
+    console.log("ultimo mes");
+    //tomas fecha actual y le restas un mes
+    //hay que trabajar con el rango, tenes que enviar las dos fecha, actual, y la de 30 dias atras
+  });
+}
+
+
+
+ 
+

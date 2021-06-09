@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="css/theme1.css"/>
   </head>
   <body>
-    <div>
-      <div>Buscar por fecha</div>
-      <div><button>Últimas 24hs</button><button>Últimos 7 días</button><button>Último mes</button></div>
-      <div id="caleandar">
+    <div class="back f-color"style="width:340px;">
+      <div style="display: inline;background-color: #333; margin-top: 10px; margin-left: 5px;" >Buscar por fecha <a  class="btn-calendar" id="btn-close" style="float:right;">x</a></div>
+      <div style="margin-left:33px;background-color: #333; margin-top: 5px; margin-top: 10px;"><a type="button" class="btn-calendar">Últimas 24hs</a><a type="button"  class="btn-calendar">Últimos 7 días</a><a type="button"  class="btn-calendar" id="btn-last-month">Último mes</a></div>
+      <div id="caleandar" style="margin-top: 10px;" >
 
       </div>
-      <div><button>Borrar fechas</button><button>Aplicar</button></div>
+      <div style="background-color: #333;width:340px; margin-top:-18px;height:30px;"><a type="button"  class="" style="border:1px solid var(--my-color);border-radius: 0.3em; margin-top: 5px;margin-right: 0px;">Borrar fechas</a><a id="btn-apply" style="float:right;border-radius: 0.3em;background-color: red;margin-top: 5px;"  class="btn-calendar">Aplicar</a></div>
     </div>
 
     <script type="text/javascript" src="js/caleandar.js"></script>
