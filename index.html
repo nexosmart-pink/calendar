@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="css/theme1.css"/>
   </head>
   <body>
-    <div class="back f-color"style="width:340px;border-radius:0.5em;">
+
+    <button id="btn-calendar-open">Calendario</button>
+
+    <div class="back f-color" style="width:340px;border-radius:0.5em;display:none;" id="calendar_facu">
       <div class="back" style="display: inline; margin-top: 10px; margin-left: 5px;" >Buscar por fecha <a  class="btn-calendar" id="btn-close" style="float:right;">x</a></div>
       <div class="back" style="margin-left:33px; margin-top: 5px; margin-top: 10px;"><a type="button" class="btn-calendar">Últimas 24hs</a><a type="button"  class="btn-calendar">Últimos 7 días</a><a type="button"  class="btn-calendar" id="btn-last-month">Último mes</a></div>
       <div id="caleandar" style="margin-top: 10px;" >
@@ -16,7 +19,21 @@
       </div>
       <div class="back" style="width:340px; margin-top:-18px;height:30px;border-radius:0.5em;"><a type="button"  class="" style="border:1px solid var(--my-color);border-radius: 0.3em; margin-top: 5px;margin-right: 0px;">Borrar fechas</a><a id="btn-apply" style="float:right;border-radius: 0.3em;background-color: red;margin-top: 5px;"  class="btn-calendar">Aplicar</a></div>
     </div>
+    <script>
+      window.addEventListener('load', function() {
+          let btn = document.querySelector('#btn-calendar-open');
+          let calendar = document.querySelector('#calendar_facu');
+          // calendar.style.display='none';
 
+          if (btn) btn.addEventListener('click',()=>{            
+            console.log(calendar.style.display);
+            if(calendar) 
+              if (calendar.style.display=='none')
+                calendar.style.display='block';
+              else calendar.style.display='none';
+          })
+      })
+    </script>
     <script type="text/javascript" src="js/caleandar.js"></script>
     <script type="text/javascript" src="js/demo.js"></script>
   </body>
