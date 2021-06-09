@@ -292,15 +292,16 @@ function createCalendar(calendar, element, adjuster){
   }
   AddLabels();
   AddDays();
+  clickDay();
+  btnClose();
+  btnApply();
+  lastMonth();
 }
 
 function caleandar(el, data, settings){
   var obj = new Calendar(data, settings);
   createCalendar(obj, el);
-  clickDay();
-  btnClose();
-  btnApply();
-  lastMonth();
+
 }
 
 
